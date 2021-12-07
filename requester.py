@@ -1,6 +1,9 @@
 import random
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # URl to web scrap from.
 page_url = 'https://www.cyberpuerta.mx/Computadoras/Webcam-Audio/Webcams/'
@@ -16,8 +19,10 @@ user_agent_list = [
 
 # Pick a random user agent
 user_agent = random.choice(user_agent_list)
+
 # Set the headers
 headers = {'User-Agent': user_agent}
+
 # Make the request
 response = Request(page_url, headers=headers)
 

@@ -1,9 +1,12 @@
 from bs4 import BeautifulSoup as soup  # HTML data structure
 from urllib.request import urlopen as uReq  # Web client
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # URl to web scrap from.
 # in this example we web scrap graphics cards from Newegg.com
-page_url = "http://www.newegg.com/Product/ProductList.aspx?Submit=ENE&N=-1&IsNodeId=1&Description=GTX&bop=And&Page=1&PageSize=36&order=BESTMATCH"
+page_url = "https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709"
 
 # opens the connection and downloads html page from url
 uClient = uReq(page_url)
@@ -54,4 +57,3 @@ for container in containers:
     f.write(brand + ", " + product_name.replace(",", "|") + ", " + shipping + "\n")
 
 f.close()  # Close the file
----End of code---
