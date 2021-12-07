@@ -10,3 +10,4 @@ Tienda en linea con productos estandarizados.
 * Python
 * Beautiful Soup
 * Requests
+* SSL
